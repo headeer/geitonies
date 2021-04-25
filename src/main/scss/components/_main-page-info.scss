@@ -2,6 +2,13 @@
 @import "../breakpoints";
 
 .main-page-info {
+  @media (min-width: 1800px) {
+    margin-left: -7%;
+    .beer {
+      margin-left: -7%;
+
+    }
+  }
   header {
     position: absolute;
     right: 0;

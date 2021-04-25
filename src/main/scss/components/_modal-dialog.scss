@@ -45,7 +45,9 @@
       @media #{$sm} {
         left: 47%;
       }
-
+      @media (min-width: 1800px){
+        left: 52.1%;
+      }
       &::before {
         height: 0;
         content: '';

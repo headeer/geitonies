@@ -18,6 +18,8 @@ nav {
     justify-content: flex-start;
     width: 50%;
     .menu-item0 {
+      position: relative;
+      z-index: 12;
       .logo {
         height: 360px;
       }
