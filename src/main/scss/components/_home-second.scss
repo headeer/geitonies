@@ -1,0 +1,47 @@
+@import "../mixins/index";
+@import "../breakpoints";
+.home-page-second {
+  @include flex(column, wrap, center, center);
+  width: 100%;
+  @media (max-width: 576px) {
+    text-align: center;
+    padding-top: 40px;
+    .desktop {
+      display: none;
+    }
+  }
+  @media #{$sm} {
+    .mobile {
+      display: none;
+    }
+  }
+  header {
+    img {
+      height: 18vh;
+    }
+  }
+  .text {
+    text-align: center;
+    position: relative;
+    padding-top: 16%;
+  }
+  .beer img {
+    height: 30vh;
+  }
+  .hand-top {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    .logo {
+      height: 100%;
+    }
+  }
+  .hand-bottom {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    .logo {
+      height: 100%;
+    }
+  }
+}

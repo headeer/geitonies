@@ -1,0 +1,46 @@
+@import "../breakpoints";
+
+.tree-info {
+  padding-top: 20%;
+  @media (max-width: 576px) {
+    .desktop {
+      display: none;
+    }
+  }
+  @media #{$sm} {
+    padding-top: 0;
+    .mobile {
+      display: none;
+    }
+  }
+
+  .carousel {
+    .arrows {
+      display: block !important;
+    }
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .hand-top {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+
+    .logo {
+      height: 100%;
+    }
+  }
+
+  .hand-bottom {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    .logo {
+      height: 100%;
+    }
+  }
+}

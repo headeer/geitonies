@@ -1,0 +1,44 @@
+@import "../mixins/index";
+@import '../colors';
+@import "../breakpoints";
+
+.gift-page {
+  @media (max-width: 576px) {
+    .desktop {
+      display: none;
+    }
+  }
+  @media #{$sm} {
+    .mobile {
+      display: none;
+    }
+  }
+  @include flex(column, wrap, center, center);
+  width: 100%;
+  h2 {
+    font-size: 38px;
+  }
+  .text {
+    text-align: center;
+    position: relative;
+    .red-text {
+      color: $highlights;
+    }
+  }
+  .hand-top {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+    .logo {
+      height: 100%;
+    }
+  }
+  .hand-bottom {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    .logo {
+      height: 100%;
+    }
+  }
+}

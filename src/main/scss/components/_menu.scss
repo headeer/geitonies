@@ -1,0 +1,62 @@
+@import "../mixins/index";
+@import "../breakpoints";
+
+nav {
+  @include flex(row, no-wrap, center, center);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  @media (max-width: 576px) {
+    .desktop {
+      display: none;
+    }
+  }
+  @media #{$sm} {
+    .mobile {
+      display: none;
+    }
+    justify-content: flex-start;
+    width: 50%;
+    .menu-item0 {
+      .logo {
+        height: 360px;
+      }
+
+      .logo img {
+        width: 200%;
+        height: 146%;
+      }
+    }
+    .menu-item1 {
+      position: absolute;
+      left: 166px;
+      top: 209px;
+    }
+    .menu-item2 {
+      display: block;
+      padding: 24px 0 0 38px;
+    }
+    .menu-item3 {
+      position: absolute;
+      left: 136px;
+      top: 274px;
+    }
+  }
+
+  button {
+    border: none;
+    background: transparent;
+
+  }
+
+  .menu-item {
+    &.enable {
+      cursor: pointer;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+}

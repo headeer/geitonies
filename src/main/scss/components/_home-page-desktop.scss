@@ -1,0 +1,64 @@
+@import "../mixins/index";
+.home-page-info-desktop{
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  height: 100vh;
+  padding-top: 60px;
+
+  header {
+    img {
+      height: 9vh;
+    }
+  }
+  .text {
+    text-align: center;
+    position: relative;
+    padding-top: 0;
+    font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    margin-bottom: -30px;
+  }
+  .beer .logo{
+    width: 90%;
+    height: 88%;
+    margin-left: -26%;
+
+    img {
+      width: 194%;
+      height: 100%;
+    }
+  }
+  button {
+    margin-top: -50px;
+
+  }
+  .row-1 {
+    .logo {
+      position: relative;
+      left: -58%;
+      top: -9%;
+    width: 100%;
+    height: 100%;
+      img {
+        width: 150%;
+      }
+    }
+  }
+  .row-2 {
+    @include flex(column, wrap,flex-start, center);
+  }
+  .row-3 {
+    .logo {
+      position: relative;
+      top: -19%;
+      right: -18%;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 150%;
+      }
+    }
+  }
+}

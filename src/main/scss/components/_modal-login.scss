@@ -1,0 +1,331 @@
+@import "../mixins/index";
+@import "../colors";
+@import "../breakpoints";
+
+.modal-login {
+  overflow: hidden;
+  z-index: 9999;
+  position: relative;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 38, 119, 0.9);
+
+  &::after {
+    content: '';
+    background: url("../../../assets/gift-info/left-wing.svg") no-repeat;
+    position: absolute;
+    transform: rotate(-40deg);
+    left: -23%;
+    top: 36%;
+    width: 100%;
+    height: 1560px;
+  }
+
+  &::before {
+    background: url("../../../assets/gift-info/right-wing.svg") no-repeat;
+    position: absolute;
+    left: 37%;
+    transform: rotate(-40deg);
+    top: -104%;
+    width: 100%;
+    height: 1560px;
+    content: '';
+  }
+
+  @media (max-width: 576px) {
+    &::before, &::after{
+      display: none;
+    }
+  }
+  @media (max-width: 576px) {
+    .left-corner, .right-corner {
+      display: none;
+    }
+  }
+  @media (min-width: 1100px) and (max-width: 1208px) {
+    &::after {
+      left: -36%;
+      top: 36%;
+      width: 120%;
+    }
+    &::before {
+      left: 29%;
+      top: -94%;
+    }
+  }
+  @media (min-width: 1209px) and (max-width: 1300px) {
+    &::after {
+      left: -29%;
+      top: 37%;
+      width: 109%;
+    }
+    &::before {
+      left: 35%;
+      top: -101%;
+    }
+  }
+  @media (min-width: 1300px) and (max-width: 1440px) {
+    &::after {
+      left: -23%;
+      top: 36%;
+    }
+    &::before {
+      left: 37%;
+      top: -104%;
+    }
+  }
+  @media (min-width: 1441px) and (max-width: 1640px) {
+    &::after {
+      left: -20%;
+      top: 32%;
+    }
+    &::before {
+      left: 39%;
+      top: -108%;
+    }
+  }
+  @media (min-width: 1641px) and (max-width: 1800px) {
+    &::after {
+      left: -16%;
+      top: 24%;
+    }
+    &::before {
+      left: 41%;
+      top: -115%;
+    }
+  }
+  @media (min-width: 1801px) and (max-width: 2000px) {
+    &::after {
+      left: -14%;
+      top: 17%;
+    }
+    &::before {
+      left: 47%;
+      top: -126%;
+    }
+  }
+  .left-corner {
+    .logo {
+      position: absolute;
+      left: -58%;
+      top: -9%;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 150%;
+      }
+    }
+  }
+
+  .right-corner {
+    .logo {
+      position: absolute;
+      top: -19%;
+      right: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 150%;
+      }
+    }
+  }
+
+  .modal-dialog {
+    text-align: left;
+    width: 300px;
+    height: 80%;
+    background: $background;
+    top: 5%;
+    left: 5%;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 2%;
+    @media #{$sm} {
+      top: 24%;
+      left: 24%;
+      height: 50%;
+      width: 50%;
+      padding: 20px;
+    }
+
+    .modal-title {
+      padding-top: 30px;
+      font-size: 30px;
+      color: $main-color;
+      margin: 0;
+      font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+
+    .modal-body {
+      z-index: 2;
+      color: $main-color;
+      position: relative;
+      font-size: 17px;
+      font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+
+      #formBasicName, #formBasicEmail {
+        position: relative;
+        padding: 20px 24px;
+        width: 220px;
+        background: $grey-bright;
+        border: none;
+        border-radius: 10px;
+        @media #{$sm} {
+          width: 80%;
+        }
+
+        &::-webkit-input-placeholder {
+          font-size: 18px;
+          color: $main-color;
+          font-weight: 400;
+          font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+
+        }
+      }
+
+      #formBasicCheckbox, #formBasicCheckbox2 {
+        padding: 0;
+        height: initial;
+        width: initial;
+        margin-bottom: 0;
+        display: none;
+        cursor: pointer;
+      }
+
+      .form-group {
+        position: relative;
+        display: block;
+        margin-bottom: 15px;
+
+      }
+
+      .form-group label:before {
+        content: '';
+        -webkit-appearance: none;
+
+        background-color: $main-color;
+        border: 2px solid $main-color;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+        padding: 10px;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .form-group input:checked + label:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        width: 6px;
+        height: 14px;
+        border: solid $secondary-color;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      button {
+        padding: 12px;
+      }
+
+      p {
+        font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+      }
+
+      a {
+        font-size: 18px;
+        color: $main-color;
+        padding-left: 20px;
+      }
+
+      h4 {
+        font-size: 18px;
+        margin: 0 0 10px;
+        font-family: "StTransmission-600", Arial, Helvetica, sans-serif;
+      }
+
+    }
+
+    .modal-footer {
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      @include flex(row, no-wrap, center, center);
+      padding-top: 30px;
+
+      div {
+        color: $highlights;
+        @include flex(row, no-wrap, center, center);
+
+        img {
+          padding-left: 10px;
+        }
+      }
+
+    }
+
+    img {
+      height: 65px;
+    }
+
+    h5 {
+      font-size: 38px;
+      margin: 0;
+      padding: 20px 0 0;
+      color: $secondary-color;
+    }
+  }
+
+  .bottom-info {
+    @include flex(column, no-wrap, center, flex-end);
+    flex-direction: column;
+    height: 100px;
+    width: 200px;
+    text-align: right;
+    margin: -37px 0px 0 50px;
+
+    .blue-container {
+      background: $secondary-color;
+      position: relative;
+      padding-right: 30px;
+      @include flex(row, no-wrap, center, flex-start);
+
+      .logo {
+        position: absolute;
+        align-items: center;
+        right: 0;
+      }
+
+    }
+
+    h5 {
+      font-size: 28px;
+      text-align: right;
+      color: $main-color !important;
+      font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+    }
+
+  }
+
+  @media #{$sm} {
+    .mobile {
+      display: none;
+    }
+    .modal-content {
+      padding-left: 4%;
+    }
+    .modal-footer {
+      margin-top: -69px;
+      margin-left: 300px;
+      padding-top: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+@import "../mixins/index";
+@import "../breakpoints";
+
+.main-page-info {
+  header {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    img {
+      height: 9vh;
+    }
+  }
+
+  .beer img {
+    height: 30vh;
+  }
+
+  @include flex(column, wrap, center, center);
+  width: 100%;
+  padding-top: 20%;
+  @media (max-width: 576px) {
+    .desktop {
+      display: none;
+    }
+  }
+  @media #{$sm} {
+    .mobile {
+      display: none;
+    }
+    .beer {
+      position: absolute;
+      bottom: 110px;
+      left: 46%;
+    }
+    .desktop {
+      position: absolute;
+      top: 40px;
+      @include flex(row, no-wrap, center, center);
+
+      .diamond-shape {
+        background: #fff;
+        height: 200px;
+        text-align: center;
+        display: block;
+        margin: 40px auto 0;
+        border-radius: 20%;
+        transform: rotate(45deg);
+        width: 200px;
+
+        img {
+          height: 50px;
+        }
+
+        h5 {
+          font-size: 38px;
+          margin: 0;
+          padding: 20px 0 0;
+          color: $secondary-color;
+        }
+      }
+
+      .item-count {
+        color: #333;
+        display: block;
+        height: 200px;
+        transform: rotate(-45deg);
+        vertical-align: middle;
+        width: 200px;
+      }
+
+      .row-1 {
+        .logo {
+          height: 300px;
+          padding-top: 40%;
+        }
+      }
+
+      .row-2 {
+        position: relative;
+
+        .shape-1 {
+          position: absolute;
+          top: -230px;
+          left: 110px;
+        }
+
+        .shape-2 {
+          position: relative;
+          top: -18px;
+          right: 27px;
+        }
+
+        .shape-3 {
+          position: absolute;
+          top: 211px;
+          left: 110px;
+        }
+      }
+
+      .row-3 {
+        z-index: 1;
+        position: relative;
+
+        .big-logo .logo {
+          display: block;
+          z-index: 1;
+          height: 60vh;
+          padding-top: 80px;
+        }
+
+        .leaf .logo {
+          padding: 30px 0 0 250px;
+          height: 30px;
+        }
+      }
+
+      .row-4 {
+        position: relative;
+
+        .shape-1 {
+          z-index: 0;
+          display: block;
+          position: absolute;
+          top: -230px;
+          left: -110px;
+        }
+
+        .shape-2 {
+          position: relative;
+          top: -18px;
+          right: -23px;
+        }
+
+        .shape-3 {
+          position: absolute;
+          top: 211px;
+          left: -110px;
+        }
+      }
+
+      .row-5 {
+        .lamp {
+          position: relative;
+          right: 0;
+          top: 150px;
+        }
+
+        .chicken {
+          position: relative;
+          top: 342px;
+          right: 107px;
+        }
+      }
+    }
+  }
+
+
+}

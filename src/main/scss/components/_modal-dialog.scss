@@ -1,0 +1,141 @@
+@import "../mixins/index";
+@import "../colors";
+@import "../breakpoints";
+
+.modal-dialog {
+  &.modal {
+    &.dialog2 {
+      .modal-dialog {
+        top: 48%;
+
+        &::before {
+          border-left: 20px solid transparent;
+          border-top: 20px solid $background;
+          top: 100%;
+          right: 9%;
+        }
+      }
+
+    }
+
+    overflow: hidden;
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 38, 119, 0.2);
+
+
+    .modal-dialog {
+
+        text-align: left;
+      width: 200px;
+      height: 170px;
+      background: $background;
+      top: 39%;
+      left: 20%;
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 2%;
+      @media #{$sm} {
+        left: 47%;
+      }
+      &::before {
+        height: 0;
+        content: '';
+        position: absolute;
+        width: 0;
+        right: -40px;
+        top: 40%;
+        display: block;
+        border-left: 20px solid $background;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-top: 20px solid transparent;
+      }
+
+      .modal-body {
+        z-index: 2;
+        color: $main-color;
+        position: relative;
+        font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+        font-size: 17px;
+
+        h4 {
+          font-size: 18px;
+          margin: 0 0 10px;
+          font-family: "StTransmission-600", Arial, Helvetica, sans-serif;
+        }
+      }
+
+      .modal-footer {
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        @include flex(row, no-wrap, space-between, flex-start);
+        padding-top: 30px;
+
+        span {
+          text-decoration: underline;
+          font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+          font-size: 17px;
+          color: $main-color;
+          cursor: pointer;
+        }
+
+        div {
+          color: $highlights;
+          @include flex(row, no-wrap, space-between, flex-start);
+
+          img {
+            padding-left: 10px;
+          }
+        }
+
+      }
+
+      img {
+        height: 20px;
+      }
+
+      h5 {
+        font-size: 38px;
+        margin: 0;
+        padding: 20px 0 0;
+        color: $secondary-color;
+      }
+    }
+
+    .bottom-info {
+      @include flex(column, no-wrap, center, flex-end);
+      flex-direction: column;
+      height: 100px;
+      width: 224px;
+      text-align: right;
+      margin: 27px 0px 0 80px;
+
+      .blue-container {
+        background: $secondary-color;
+        position: relative;
+        padding-right: 30px;
+        @include flex(row, no-wrap, center, flex-start);
+
+        .logo {
+          position: absolute;
+          align-items: center;
+          right: 0;
+        }
+
+      }
+
+      h5 {
+        font-size: 28px;
+        text-align: right;
+        color: $main-color !important;
+        font-family: "StTransmission-400", Arial, Helvetica, sans-serif;
+      }
+
+    }
+  }
+}
