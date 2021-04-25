@@ -44,11 +44,11 @@ class MapContent extends React.Component {
                 open: !state.open
             }));
         }
+        const nav = document.querySelector('nav');
         if (window.innerWidth < 600) {
             nav.style.opacity = this.state.open ? '1' : '0';
             nav.style.zIndex = this.state.open ? '1' : '-100';
         }
-        const nav = document.querySelector('nav');
 
     }
 

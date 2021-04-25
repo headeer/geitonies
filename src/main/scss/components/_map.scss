@@ -283,7 +283,7 @@
     position: absolute;
     bottom: 13%;
     right: 5%;
-    @media #{$sm} {
+      @media #{$sm} {
       right: 31%;
       z-index: 1;
     }

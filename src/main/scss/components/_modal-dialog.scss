@@ -5,6 +5,11 @@
 .modal-dialog {
   &.modal {
     &.dialog2 {
+      @media (max-width: 576px) {
+        .bottom-info {
+          margin: -34px 0px 0 36px;
+        }
+      }
       .modal-dialog {
         top: 48%;
 
@@ -15,7 +20,6 @@
           right: 9%;
         }
       }
-
     }
 
     overflow: hidden;
@@ -29,7 +33,7 @@
 
     .modal-dialog {
 
-        text-align: left;
+      text-align: left;
       width: 200px;
       height: 170px;
       background: $background;
@@ -41,6 +45,7 @@
       @media #{$sm} {
         left: 47%;
       }
+
       &::before {
         height: 0;
         content: '';
