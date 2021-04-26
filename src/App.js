@@ -23,7 +23,7 @@ const App = ( ) => {
     return (
         <div className="app">
             <div className="logo top">
-                <a href="/home">
+                <a href="/">
                     <Image img={logo}>
                     </Image>
                 </a>
@@ -37,7 +37,7 @@ const App = ( ) => {
                             classNames="fade"
                         >
                             <Switch location={location}>
-                                <Route exact path="/home" component={Home}/>
+                                <Route exact path="/" component={Home}/>
                                 <Route path="/home-info" component={HomeSecond}/>
                                 <Route path="/map" component={Map}/>
                                 <Route path="/gift-info" component={Gift}/>
