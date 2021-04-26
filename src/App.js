@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useEffect} from "react";
+import React from "react";
 import Image from './main/js/shared/image';
 import {
     BrowserRouter as Router,
@@ -15,7 +15,6 @@ import logo from './assets/logo.svg';
 import Home from './main/js/home';
 import HomeSecond from './main/js/homeSecond';
 import Map from "./main/js/map";
-import Main from "./main/js/main";
 import Gift from "./main/js/gift";
 import MainInfo from "./main/js/mainInfo";
 import TreeInfo from "./main/js/treeInfo";
@@ -38,7 +37,6 @@ const App = ( ) => {
                             classNames="fade"
                         >
                             <Switch location={location}>
-                                <Route exact path="/" component={Main}/>
                                 <Route exact path="/home" component={Home}/>
                                 <Route path="/home-info" component={HomeSecond}/>
                                 <Route path="/map" component={Map}/>

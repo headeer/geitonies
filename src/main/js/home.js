@@ -1,19 +1,16 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Image from './shared/image';
 import headerLogo from '../../assets/header-logo.svg';
 import beer from '../../assets/home-image.svg';
 import {useHistory} from "react-router-dom";
 import HomeDesktop from './homeDesktop';
 
-const Home = (props) => {
+const Home = () => {
     let history = useHistory();
     const handleClick = () => {
             history.push("/map");
     }
-    useEffect(() => {
-        const nav = document.querySelector('nav');
-        nav.style.zIndex = '1';
-    }, [props.location]);
+
     return (
         <div className="home-page">
             <div className="mobile">
