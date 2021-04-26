@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect} from "react";
 import * as date from "./data/data.json";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
@@ -7,8 +7,13 @@ import pin from '../../assets/pin.svg';
 import plusIcon from '../../assets/plus.svg';
 
 export default function Map() {
-    useEffect(() => {
+    let createMarker = false;
+    const coordinates = document.getElementById('coordinates');
 
+    const onDragEnd = () => {
+        createMarker = true;
+    }
+    useEffect(() => {
         if (!('remove' in Element.prototype)) {
             Element.prototype.remove = function () {
                 if (this.parentNode) {
@@ -26,7 +31,16 @@ export default function Map() {
         date.features.forEach(function (store, i) {
             store.properties.id = i;
         });
+        map.on('mouseover', (e) => {
+            setTimeout(() => {
+                if (createMarker) {
+                    createMarkerOnMap(e, map);
+                }
+                createMarker = false;
+            },100)
 
+
+        })
         map.on('load', function (e) {
             map.addSource('places', {
                 type: 'geojson',
@@ -34,27 +48,9 @@ export default function Map() {
             });
             addMarkers(map);
         });
-
         map.on('click', function (e) {
-            const coordinates = document.getElementById('coordinates');
             //TODO: save it to the backend to add it to the list
-            const el = document.createElement('div');
-            /* Assign a unique `id` to the marker. */
-            el.id = "marker-" + Date.now();
-            /* Assign the `marker` class to each marker for styling. */
-            el.className = 'marker';
-            const marker = new mapboxgl.Marker(el, {
-                draggable: true
-            }).setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
-            const onDragEnd = (e) => {
-
-                const lngLat = marker.getLngLat();
-                coordinates.style.display = 'block';
-                coordinates.innerHTML =
-                    'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
-            }
-
-            marker.on('dragend', onDragEnd);
+            createMarkerOnMap(e, map);
             /* Determine if a feature in the "locations" layer exists at that point. */
             const features = map.queryRenderedFeatures(e.point, {
                 layers: ['locations']
@@ -82,7 +78,23 @@ export default function Map() {
 
         buildLocationList(date.default, map);
     }, []);
-
+    function createMarkerOnMap(e, map) {
+        const el = document.createElement('div');
+        /* Assign a unique `id` to the marker. */
+        el.id = "marker-" + Date.now();
+        /* Assign the `marker` class to each marker for styling. */
+        el.className = 'marker';
+        const marker = new mapboxgl.Marker(el, {
+            draggable: true
+        }).setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
+        const onDragEnd = (e) => {
+            const lngLat = marker.getLngLat();
+            coordinates.style.display = 'block';
+            coordinates.innerHTML =
+                'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+        }
+        marker.on('dragend', onDragEnd);
+    }
     function buildLocationList(data, map) {
         data.features.forEach(function (store, i) {
             /**
@@ -98,10 +110,19 @@ export default function Map() {
             listing.id = "listing-" + data.features[i].properties.id;
             /* Assign the `item` class to each listing for styling. */
             listing.className = 'item';
+
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
             const img = listing.appendChild(document.createElement('img'));
             img.src = pin;
             img.style.height = "40px";
             img.style.width = "40px";
+            listing.draggable = true;
+            listing.ondragstart = (e) => {console.log(e)};
+            listing.ondragend = (e) => {console.log(e)}
             /* Add the link to the individual listing created above. */
             const link = listing.appendChild(document.createElement('a'));
             link.href = '#';
@@ -207,7 +228,7 @@ export default function Map() {
     }
 
     return (
-        <MapContent displayInfo={true}>
+        <MapContent onEndDragging={onDragEnd} displayInfo={true}>
         </MapContent>
     );
 }

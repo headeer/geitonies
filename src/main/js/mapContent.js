@@ -15,7 +15,6 @@ class MapContent extends React.Component {
         }
         this.state = {open: openInit, openModal: false, openLoginPage: false};
         this.openSidebar = this.openSidebar.bind(this);
-
     }
 
     componentDidMount() {
@@ -63,7 +62,9 @@ class MapContent extends React.Component {
             openLoginPage: false
         }));
     }
-
+    onDrop(e) {
+        console.log(e);
+    }
     render() {
         return (
             <div className={this.state.open ? "map-container open" : "map-container"}>
@@ -89,7 +90,7 @@ class MapContent extends React.Component {
                         </p>
                     </div>
                 </div>
-                <div id="map" className="map">
+                <div id="map" className="map" onDragOver={(event) => event.preventDefault()} onDrop={this.props.onEndDragging}>
                 </div>
                 {this.props.displayInfo && <div className="bottom-info" onClick={this.openLogin}>
                     <h5>ετοιμος;</h5>

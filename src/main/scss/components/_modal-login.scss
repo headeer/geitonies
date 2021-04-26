@@ -233,6 +233,10 @@
 
       button {
         padding: 12px;
+        &:disabled {
+          background: $grey-bright;
+          cursor: not-allowed;
+        }
       }
 
       p {
