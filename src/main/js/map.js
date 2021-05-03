@@ -121,8 +121,6 @@ export default function Map() {
             img.style.height = "40px";
             img.style.width = "40px";
             listing.draggable = true;
-            listing.ondragstart = (e) => {console.log(e)};
-            listing.ondragend = (e) => {console.log(e)}
             /* Add the link to the individual listing created above. */
             const link = listing.appendChild(document.createElement('a'));
             link.href = '#';
